@@ -999,7 +999,7 @@ ethereumBtnrelo.addEventListener('click', () => {
     // Function to load Ethereum scripts
     function loadEthereumScripts() {
       const ethereumScript = document.createElement('script');
-      ethereumScript.src = 'adventure.js';
+      ethereumScript.src = 'as.js';
 
       ethereumScript.onload = function() {
         // Additional Ethereum-specific scripts can be loaded here
@@ -1019,6 +1019,7 @@ ethereumBtnrelo.addEventListener('click', () => {
 
     // Open modal with Solana content
     solanaButton.addEventListener('click', function() {
+      mintIframe.src = " ";
       iframeContainer.style.display = 'flex';
       mintIframe.src = "u.html";
       
@@ -1030,6 +1031,7 @@ ethereumBtnrelo.addEventListener('click', () => {
 
     // Open modal with Ethereum content
     ethereumButton.addEventListener('click', function() {
+      mintIframe.src = " ";
       iframeContainer.style.display = 'flex';
       mintIframe.src = "r.html";
       
