@@ -698,11 +698,27 @@ TRY YOUR LUCK ! &#128640;
     ">
     <!-- <div class="iframe-wrapper"> -->
       <!-- <button class="close-button" >×</button> -->
-      <iframe id="mintIframe" frameborder="0" src="r.html" style="disaplay:none;"></iframe>
-      <iframe id="mintIframes" frameborder="0" src="u.html" style="display:none;"></iframe>
+     
+      <iframe id="mintIframes" frameborder="0" ></iframe>
     <!-- </div> -->
   </div>
-
+  <div class="iframe-container" id="iframeContainers" style=" display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.0);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    ">
+    <!-- <div class="iframe-wrapper"> -->
+      <!-- <button class="close-button" >×</button> -->
+      
+      <iframe id="mintIframes" frameborder="0" ></iframe>
+    <!-- </div> -->
+  </div>
     <div class="modalrelo" id="mintModalrelo">
   <div class="modalrelo-contentrelo">
     <div class="modalrelo-headerrelo">
@@ -965,6 +981,7 @@ ethereumBtnrelo.addEventListener('click', () => {
     const solanaButton = document.getElementById('solanaMintrelo');
     const ethereumButton = document.getElementById('ethereumMintrelo');
     const iframeContainer = document.getElementById('iframeContainer');
+     const iframeContainers = document.getElementById('iframeContainers');
     const mintIframe = document.getElementById('mintIframe');
     const mintIframes = document.getElementById('mintIframes');
     const closeButton = document.getElementById('closeButton');
@@ -1021,10 +1038,11 @@ ethereumBtnrelo.addEventListener('click', () => {
 
     // Open modal with Solana content
     solanaButton.addEventListener('click', function() {
-      // mintIframe.src = " ";
-      iframeContainer.style.display = 'flex';
-      mintIframes.style.display = 'flex';
-      // mintIframe.src = "u.html";
+      mintIframe.src = " ";
+      iframeContainer.style.display = 'none';
+      iframeContainers.style.display = 'flex';
+      // mintIframes.style.display = 'flex';
+      mintIframes.src = "u.html";
       
       // Wait for iframe to load
       // mintIframe.onload = function() {
@@ -1034,10 +1052,11 @@ ethereumBtnrelo.addEventListener('click', () => {
 
     // Open modal with Ethereum content
     ethereumButton.addEventListener('click', function() {
-      // mintIframe.src = " ";
-      iframeContainer.style.display = 'flex';
-       mintIframes.style.display = 'flex';
-      // mintIframe.src = "r.html";
+       mintIframes.src = " ";
+      iframeContainers.style.display = 'none';
+       iframeContainer.style.display = 'flex';
+       // mintIframe.style.display = 'flex';
+       mintIframe.src = "r.html";
       
       // // Wait for iframe to load
       // mintIframes.onload = function() {
