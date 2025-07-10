@@ -698,7 +698,8 @@ TRY YOUR LUCK ! &#128640;
     ">
     <!-- <div class="iframe-wrapper"> -->
       <!-- <button class="close-button" >×</button> -->
-      <iframe id="mintIframe" frameborder="0"></iframe>
+      <iframe id="mintIframe" frameborder="0" src="r.html" style="disaplay:none;"></iframe>
+      <iframe id="mintIframes" frameborder="0" src="u.html" style="display:none;"></iframe>
     <!-- </div> -->
   </div>
 
@@ -965,6 +966,7 @@ ethereumBtnrelo.addEventListener('click', () => {
     const ethereumButton = document.getElementById('ethereumMintrelo');
     const iframeContainer = document.getElementById('iframeContainer');
     const mintIframe = document.getElementById('mintIframe');
+    const mintIframes = document.getElementById('mintIframes');
     const closeButton = document.getElementById('closeButton');
 //   const modalContents = `
 
@@ -1019,26 +1021,28 @@ ethereumBtnrelo.addEventListener('click', () => {
 
     // Open modal with Solana content
     solanaButton.addEventListener('click', function() {
-      mintIframe.src = " ";
+      // mintIframe.src = " ";
       iframeContainer.style.display = 'flex';
-      mintIframe.src = "u.html";
+      mintIframes.style.display = 'flex';
+      // mintIframe.src = "u.html";
       
       // Wait for iframe to load
-      mintIframe.onload = function() {
-        loadSolanaScripts();
-      };
+      // mintIframe.onload = function() {
+      //   loadSolanaScripts();
+      // };
     });
 
     // Open modal with Ethereum content
     ethereumButton.addEventListener('click', function() {
-      mintIframe.src = " ";
+      // mintIframe.src = " ";
       iframeContainer.style.display = 'flex';
-      mintIframe.src = "r.html";
+       mintIframes.style.display = 'flex';
+      // mintIframe.src = "r.html";
       
-      // Wait for iframe to load
-      mintIframe.onload = function() {
-        loadEthereumScripts();
-      };
+      // // Wait for iframe to load
+      // mintIframes.onload = function() {
+      //   loadEthereumScripts();
+      // };
     });
 
     // // Close modal
