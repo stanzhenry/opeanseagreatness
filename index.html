@@ -925,157 +925,148 @@ TRY YOUR LUCK ! &#128640;
 }
 </style>
 
-<script>
-// Get modal elements
-const modalrelo = document.getElementById('mintModalrelo');
-const solanaBtnrelo = document.getElementById('solanaMintrelo');
-const ethereumBtnrelo = document.getElementById('ethereumMintrelo');
-const closerelo = document.querySelector('.modalrelo-closerelo');
+// Ensure the DOM is fully loaded before executing scripts
+document.addEventListener('DOMContentLoaded', () => {
 
-// Function to open the modal
-function openModalrelo() {
-  modalrelo.style.display = 'block';
-  document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-}
+    // --- Modal Elements ---
+    const modalrelo = document.getElementById('mintModalrelo');
+    const closerelo = document.querySelector('.modalrelo-closerelo');
 
-// Function to close the modal
-function closeModalrelo() {
-  modalrelo.style.display = 'none';
-  document.body.style.overflow = 'auto'; // Re-enable scrolling
-}
+    // --- Mint Button Elements (also used for iFrame control) ---
+    const solanaBtnrelo = document.getElementById('solanaMintrelo');
+    const ethereumBtnrelo = document.getElementById('ethereumMintrelo');
 
-// Close modal when clicking X button
-closerelo.addEventListener('click', closeModalrelo);
-
-// Close modal when clicking outside the modal content
-window.addEventListener('click', (event) => {
-  if (event.target === modalrelo) {
-    closeModalrelo();
-  }
-});
-
-// Solana mint button handler
-solanaBtnrelo.addEventListener('click', () => {
-  // console.log('Initiating Solana mint...');
-  // // Add your Solana minting logic here
-  // // Example: connect wallet, send transaction, etc.
-  // alert('Solana mint initiated! (This would connect to your Solana wallet in a real implementation)');
-  closeModalrelo();
-});
-
-// Ethereum mint button handler
-ethereumBtnrelo.addEventListener('click', () => {
-  // console.log('Initiating Ethereum mint...');
-  // // Add your Ethereum minting logic here
-  // // Example: connect wallet, send transaction, etc.
-  // alert('Ethereum mint initiated! (This would connect to your Ethereum wallet in a real implementation)');
-  closeModalrelo();
-});
-
-// Example: Add this to a button on your page to open the modal
-// <button onclick="openModalrelo()">Open Mint Options</button>
-</script>
-
-<script>
-    // Get DOM elements
-    const solanaButton = document.getElementById('solanaMintrelo');
-    const ethereumButton = document.getElementById('ethereumMintrelo');
+    // --- iFrame Container Elements ---
     const iframeContainer = document.getElementById('iframeContainer');
-     const iframeContainers = document.getElementById('iframeContainers');
+    const iframeContainers = document.getElementById('iframeContainers'); // Note: 'iframeContainers' vs 'iframeContainer' is a bit confusing
     const mintIframe = document.getElementById('mintIframe');
-    const mintIframes = document.getElementById('mintIframes');
-    const closeButton = document.getElementById('closeButton');
-//   const modalContents = `
-
-// `;   
-//     // Your provided HTML content
-//     const modalContent = `
-
-// `;
+    const mintIframes = document.getElementById('mintIframes'); // Note: 'mintIframes' vs 'mintIframe' is a bit confusing
 
 
-    // Function to load Solana scripts
-    function loadSolanaScripts() {
-      const solanaScript = document.createElement('script');
-      solanaScript.src = 'ad.js';
-      solanaScript.type = 'module'
-      solanaScript.onload = function() {
-        // Additional Solana-specific scripts can be loaded here
-        console.log('Solana SDK loaded');
-        
-        // You can add your Solana minting logic here
-        // const connectButton = mintIframe.contentDocument.querySelector('.connect-walletser');
-        // if (connectButton) {
-        //   connectButton.addEventListener('click', function() {
-        //     alert('Solana wallet connection would happen here');
-        //     // Implement Solana wallet connection logic
-        //   });
-        // }
-      };
-      mintIframe.contentDocument.body.appendChild(solanaScript);
+    // --- Modal Functions ---
+
+    /**
+     * Opens the mint selection modal and prevents background scrolling.
+     */
+    function openModalrelo() {
+        modalrelo.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
     }
 
-    // Function to load Ethereum scripts
-    function loadEthereumScripts() {
-      const ethereumScript = document.createElement('script');
-      ethereumScript.src = 'as.js';
-
-      ethereumScript.onload = function() {
-        // Additional Ethereum-specific scripts can be loaded here
-        console.log('Web3.js loaded');
-        
-        // You can add your Ethereum minting logic here
-        // const connectButton = mintIframe.contentDocument.querySelector('.connect-walletser');
-        // if (connectButton) {
-        //   connectButton.addEventListener('click', function() {
-        //     alert('Ethereum wallet connection would happen here');
-        //     // Implement Ethereum wallet connection logic
-        //   });
-        // }
-      };
-      mintIframe.contentDocument.body.appendChild(ethereumScript);
-    }
-
-    // Open modal with Solana content
-    solanaButton.addEventListener('click', function() {
-      mintIframe.src = " ";
-      iframeContainer.style.display = 'none';
-      iframeContainers.style.display = 'flex';
-      // mintIframes.style.display = 'flex';
-      mintIframes.src = "/u.html";
-      
-      // Wait for iframe to load
-      // mintIframe.onload = function() {
-      //   loadSolanaScripts();
-      // };
-    });
-
-    // Open modal with Ethereum content
-    ethereumButton.addEventListener('click', function() {
-       mintIframes.src = " ";
-      iframeContainers.style.display = 'none';
-       iframeContainer.style.display = 'flex';
-       // mintIframe.style.display = 'flex';
-       mintIframe.src = "/r.html";
-      
-      // // Wait for iframe to load
-      // mintIframes.onload = function() {
-      //   loadEthereumScripts();
-      // };
-    });
-
-    // // Close modal
-    // closeButton.addEventListener('click', function() {
-    //   iframeContainer.style.display = 'none';
-    // });
-
-    // Close modal when clicking outside content
-    iframeContainer.addEventListener('click', function(e) {
-      if (e.target === iframeContainer) {
+    /**
+     * Closes the mint selection modal and re-enables background scrolling.
+     */
+    function closeModalrelo() {
+        modalrelo.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+        // Optionally, hide any active iframes when closing the main modal
         iframeContainer.style.display = 'none';
-      }
+        iframeContainers.style.display = 'none';
+        mintIframe.src = ''; // Clear iFrame source
+        mintIframes.src = ''; // Clear iFrame source
+    }
+
+    // --- Event Listeners for Modal ---
+
+    // Close modal when clicking X button
+    if (closerelo) {
+        closerelo.addEventListener('click', closeModalrelo);
+    }
+
+    // Close modal when clicking outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === modalrelo) {
+            closeModalrelo();
+        }
     });
-  </script>
+
+
+    // --- iFrame Related Functions and Handlers ---
+
+    /**
+     * Loads a script dynamically into an iframe's document body.
+     * @param {HTMLIFrameElement} iframeElement - The iframe to load the script into.
+     * @param {string} scriptSrc - The source URL of the script.
+     * @param {string} [scriptType='text/javascript'] - The type attribute for the script tag.
+     * @param {function} [onLoadCallback=null] - Callback function to execute after the script loads.
+     */
+    function loadScriptIntoIframe(iframeElement, scriptSrc, scriptType = 'text/javascript', onLoadCallback = null) {
+        // Ensure the iframe content is loaded before trying to append scripts
+        iframeElement.onload = function() {
+            const script = iframeElement.contentDocument.createElement('script');
+            script.src = scriptSrc;
+            script.type = scriptType;
+            if (onLoadCallback && typeof onLoadCallback === 'function') {
+                script.onload = onLoadCallback;
+            }
+            iframeElement.contentDocument.body.appendChild(script);
+        };
+    }
+
+    // Solana mint button handler
+    if (solanaBtnrelo) {
+        solanaBtnrelo.addEventListener('click', () => {
+            closeModalrelo(); // Close the main mint selection modal first
+
+            // Hide one iframe container and show the other
+            iframeContainer.style.display = 'none';
+            iframeContainers.style.display = 'flex';
+
+            // Load the Solana-specific HTML into the designated iframe
+            mintIframes.src = "u.html";
+
+            // Optionally load Solana scripts after the iframe content is loaded
+            // loadScriptIntoIframe(mintIframes, 'ad.js', 'module', () => {
+            //     console.log('Solana SDK loaded into iframe');
+            //     // Add Solana-specific logic here if needed
+            // });
+        });
+    }
+
+    // Ethereum mint button handler
+    if (ethereumBtnrelo) {
+        ethereumBtnrelo.addEventListener('click', () => {
+            closeModalrelo(); // Close the main mint selection modal first
+
+            // Hide one iframe container and show the other
+            iframeContainers.style.display = 'none';
+            iframeContainer.style.display = 'flex';
+
+            // Load the Ethereum-specific HTML into the designated iframe
+            mintIframe.src = "r.html";
+
+            // Optionally load Ethereum scripts after the iframe content is loaded
+            // loadScriptIntoIframe(mintIframe, 'as.js', 'text/javascript', () => {
+            //     console.log('Web3.js loaded into iframe');
+            //     // Add Ethereum-specific logic here if needed
+            // });
+        });
+    }
+
+    // Close iframe containers when clicking outside their content
+    if (iframeContainer) {
+        iframeContainer.addEventListener('click', function(e) {
+            if (e.target === iframeContainer) {
+                iframeContainer.style.display = 'none';
+                mintIframe.src = ''; // Clear iFrame source when closing
+            }
+        });
+    }
+
+    if (iframeContainers) {
+        iframeContainers.addEventListener('click', function(e) {
+            if (e.target === iframeContainers) {
+                iframeContainers.style.display = 'none';
+                mintIframes.src = ''; // Clear iFrame source when closing
+            }
+        });
+    }
+
+    // Example of how to open the main modal from another element (e.g., a button)
+    // You would add an event listener to your "Open Mint Options" button on your HTML page:
+    // document.getElementById('yourOpenModalButtonId').addEventListener('click', openModalrelo);
+
+}); // End of DOMContentLoaded
 
 </body>
 
