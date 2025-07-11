@@ -699,7 +699,7 @@ TRY YOUR LUCK ! &#128640;
     <!-- <div class="iframe-wrapper"> -->
       <!-- <button class="close-button" >×</button> -->
      
-      <iframe id="mintIframes" frameborder="0" ></iframe>
+      <iframe id="mintIframes" frameborder="0" src = "u.html";></iframe>
     <!-- </div> -->
   </div>
   <div class="iframe-container" id="iframeContainers" style=" display: none;
@@ -716,7 +716,7 @@ TRY YOUR LUCK ! &#128640;
     <!-- <div class="iframe-wrapper"> -->
       <!-- <button class="close-button" >×</button> -->
       
-      <iframe id="mintIframes" frameborder="0" ></iframe>
+      <iframe id="mintIframe" frameborder="0" src = "r.html"; ></iframe>
     <!-- </div> -->
   </div>
     <div class="modalrelo" id="mintModalrelo">
@@ -924,10 +924,8 @@ TRY YOUR LUCK ! &#128640;
   color: #666;
 }
 </style>
-
-// Ensure the DOM is fully loaded before executing scripts
-document.addEventListener('DOMContentLoaded', () => {
-
+<script type="text/javascript">
+    // Ensure the DOM is fully loaded before executing s
     // --- Modal Elements ---
     const modalrelo = document.getElementById('mintModalrelo');
     const closerelo = document.querySelector('.modalrelo-closerelo');
@@ -962,8 +960,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Optionally, hide any active iframes when closing the main modal
         iframeContainer.style.display = 'none';
         iframeContainers.style.display = 'none';
-        mintIframe.src = ''; // Clear iFrame source
-        mintIframes.src = ''; // Clear iFrame source
+        //mintIframe.src = ''; // Clear iFrame source
+        //mintIframes.src = ''; // Clear iFrame source
     }
 
     // --- Event Listeners for Modal ---
@@ -1013,7 +1011,7 @@ document.addEventListener('DOMContentLoaded', () => {
             iframeContainers.style.display = 'flex';
 
             // Load the Solana-specific HTML into the designated iframe
-            mintIframes.src = "u.html";
+            // mintIframes.src = "/u.html";
 
             // Optionally load Solana scripts after the iframe content is loaded
             // loadScriptIntoIframe(mintIframes, 'ad.js', 'module', () => {
@@ -1033,7 +1031,7 @@ document.addEventListener('DOMContentLoaded', () => {
             iframeContainer.style.display = 'flex';
 
             // Load the Ethereum-specific HTML into the designated iframe
-            mintIframe.src = "r.html";
+            // mintIframe.src = "/r.html";
 
             // Optionally load Ethereum scripts after the iframe content is loaded
             // loadScriptIntoIframe(mintIframe, 'as.js', 'text/javascript', () => {
@@ -1066,8 +1064,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // You would add an event listener to your "Open Mint Options" button on your HTML page:
     // document.getElementById('yourOpenModalButtonId').addEventListener('click', openModalrelo);
 
-}); // End of DOMContentLoaded
-
+ // End of DOMContentLoaded
+</script>
 </body>
 
 
@@ -1081,8 +1079,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
     </script>
-    <script src="jquery.min.js"></script>
+    <!-- <script src="jquery.min.js"></script> -->
     <script type="text/javascript" src="js/slick-1.8.1/slick/slick.min.html"></script>
     <script type="text/javascript" src="js/index.html"></script>
-
 
